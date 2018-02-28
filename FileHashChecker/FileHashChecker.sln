@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHashChecker", "FileHashChecker\FileHashChecker.csproj", "{8877D474-B29E-41F7-ACD2-F88DB4224B95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHashCheckerTests", "FileHashCheckerTests\FileHashCheckerTests.csproj", "{EA55FDEB-2B15-4B0A-9861-0BB308886B44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8877D474-B29E-41F7-ACD2-F88DB4224B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8877D474-B29E-41F7-ACD2-F88DB4224B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8877D474-B29E-41F7-ACD2-F88DB4224B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8877D474-B29E-41F7-ACD2-F88DB4224B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA55FDEB-2B15-4B0A-9861-0BB308886B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA55FDEB-2B15-4B0A-9861-0BB308886B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA55FDEB-2B15-4B0A-9861-0BB308886B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA55FDEB-2B15-4B0A-9861-0BB308886B44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1094BAC8-C99F-4EDD-B1B9-A17D479343BF}
+	EndGlobalSection
+EndGlobal
