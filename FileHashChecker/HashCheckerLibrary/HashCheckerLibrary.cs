@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace FileHashChecker
+namespace HashCheckerLibrary
 {
-    public class FileHashCheckerLib
+    public class HashCheckerLibrary
     {
         public static string GetHashCodeFromFile(string strFilename)
         {
-            string strHashPassword = String.Empty; 
+            string strHashPassword = String.Empty;
             if (strFilename is null || !File.Exists(strFilename))
             {
                 throw new IOException("GetHashCodeFromFile() - Invalid \"strFilename\" parameter");

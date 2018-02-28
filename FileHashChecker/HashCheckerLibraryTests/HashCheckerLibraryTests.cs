@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FileHashChecker;
+using HashCheckerLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace FileHashChecker.Tests
+namespace HashCheckerLibrary.Tests
 {
     [TestClass()]
-    public class FileHashCheckerLibTests
+    public class HashCheckerLibraryTests
     {
         #region HelperFunctions
         // Helper Functions
@@ -37,7 +37,7 @@ namespace FileHashChecker.Tests
                 string strTempFileName = System.IO.Path.GetTempFileName();
                 File.AppendAllText(strTempFileName, entry.Key);
 
-                Assert.AreEqual(entry.Value, FileHashCheckerLib.GetHashCodeFromFile(strTempFileName));
+                Assert.AreEqual(entry.Value, HashCheckerLibrary.GetHashCodeFromFile(strTempFileName));
 
                 // clear out temp file
                 //
