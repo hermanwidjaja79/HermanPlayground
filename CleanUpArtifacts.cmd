@@ -12,4 +12,7 @@ for /d %%d in (*.*) do (
 
     echo rmdir /s /q %%d\TestResults
     rmdir /s /q %%d\TestResults
+
+    echo rmdir /s /q %%d\.axoCover
+    rmdir /s /q %%d\.axoCover
 )
