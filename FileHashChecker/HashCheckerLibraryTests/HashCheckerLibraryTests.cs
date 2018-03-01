@@ -20,7 +20,7 @@ namespace HashCheckerLibrary.Tests
             Dictionary<string, string> lstMD5TestLibrary = new Dictionary<string, string>();
             lstMD5TestLibrary.Add(
                 "This is a temporary file. Created by FileHashCheckerLib Tests on " + DateTime.Now.ToShortDateString(),
-                "8139C7BA321ED5293F03A02D760D7A4A"
+                "F4FF2234716434C417E7AF718EAF8B0D"
                 );
             return lstMD5TestLibrary;
         }

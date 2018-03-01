@@ -71,8 +71,6 @@ namespace SortingLibraries.Tests
         {
             Dictionary<List<int>, List<int>> dctTestCases = CreateTestCases();
 
-            string filepath = "C:\\Users\\herman\\Desktop\\doh\\herman.log";
-            System.IO.File.Delete(filepath);
             foreach (KeyValuePair<List<int>, List<int>> entry in dctTestCases)
             {
                 List<int> result = SortingLibraries.BubbleSort(entry.Key);
