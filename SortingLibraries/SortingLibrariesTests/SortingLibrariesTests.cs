@@ -29,6 +29,11 @@ namespace SortingLibraries.Tests
             dctTestCases.Add(
                 CreateList(6, 9, 3, 8, 1, 7),
                 CreateList(1, 3, 6, 7, 8, 9));
+            // standard list - no duplicate
+            //
+            dctTestCases.Add(
+                CreateList(6, 9, 3, 12, 101, 78, 8, 1, 7),
+                CreateList(1, 3, 6, 7, 8, 9, 12, 78, 101));
             // standard list - duplicate
             //
             dctTestCases.Add(
@@ -76,6 +81,21 @@ namespace SortingLibraries.Tests
                 List<int> result = SortingLibraries.BubbleSort(entry.Key);
                 Assert.AreEqual(
                     ListToString(result), 
+                    ListToString(entry.Value)
+                    );
+            }
+        }
+
+        [TestMethod()]
+        public void RadixSortTest()
+        {
+            Dictionary<List<int>, List<int>> dctTestCases = CreateTestCases();
+
+            foreach (KeyValuePair<List<int>, List<int>> entry in dctTestCases)
+            {
+                List<int> result = SortingLibraries.RadixSort(entry.Key);
+                Assert.AreEqual(
+                    ListToString(result),
                     ListToString(entry.Value)
                     );
             }
