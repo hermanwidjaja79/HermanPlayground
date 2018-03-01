@@ -15,7 +15,7 @@ namespace HashCheckerLibrary
             string strHashPassword = String.Empty;
             if (strFilename is null || !File.Exists(strFilename))
             {
-                throw new IOException("GetHashCodeFromFile() - Invalid \"strFilename\" parameter");
+                throw new IOException("GetHashCodeFromFile() - Invalid \"strFilename\" parameter.");
             }
 
             using (var stream = File.OpenRead(strFilename))
