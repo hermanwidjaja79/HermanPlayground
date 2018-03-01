@@ -35,10 +35,25 @@ namespace SortingLibraries
             }
             return max;
         }
+        protected static List<int> CopyList(List<int> master)
+        {
+            List<int> result = new List<int>();
+            foreach(int entry in master)
+            {
+                result.Add(entry);
+            }
+            return result;
+        }
         #endregion
 
+        #region Sorting Algorithms
         public static List<int> BubbleSort (List<int> input)
         {
+            if (input is null || input.Count() <= 1)
+            {
+                return input;
+            }
+
             int lenToMove = input.Count();
             bool swap = false;
             do
@@ -68,8 +83,13 @@ namespace SortingLibraries
 
         public static List<int> RadixSort (List<int> input)
         {
+            if (input is null || input.Count() <= 1)
+            {
+                return input;
+            }
+
             const int BASE = 10;
-            int maxValue = GetMaxValue(input);
+            int maxValue = input.Max();
 
             for (int factor = 1; factor <= maxValue; factor *= BASE)
             {
@@ -105,5 +125,59 @@ namespace SortingLibraries
 
             return input;
         }
+
+        public static List<int> MergeSort(List<int> input)
+        {
+            if (!(input == null || input.Count() <= 1))
+            {
+                MergeSort(ref input, 0, input.Count() - 1);
+            }
+            return input;
+        }
+        protected static void MergeSort(ref List<int> input, int startIndex, int endIndex)
+        {
+            if (startIndex < 0 || endIndex < 0 || endIndex - startIndex <= 0)
+            {
+                return;
+            }
+            int midIndex = (startIndex + endIndex) / 2;
+            if (endIndex - startIndex > 1)
+            {
+                MergeSort(ref input, startIndex, midIndex);
+                MergeSort(ref input, midIndex, endIndex);
+            }
+            input = CombineLists(input, startIndex, midIndex, endIndex);
+        }
+        protected static List<int> CombineLists(List<int> input, int startIndex, int midIndex, int endIndex)
+        {
+            // basic input parameter check
+            //
+            if (input == null || input.Count() == 0 || startIndex < 0 || midIndex < 0 || endIndex < 0)
+            {
+                return input;
+            }
+
+            // set two running indexes and a copy result
+            int i1 = startIndex;
+            int i2 = (midIndex == startIndex) ? endIndex : midIndex;
+            List<int> output = CopyList(input);
+
+            for (int i = startIndex; i <= endIndex; i++)
+            {
+                if (i2 > endIndex || (i1 < midIndex && input[i1] < input [i2]))
+                {
+                    output[i] = input[i1];
+                    i1++;
+                }
+                else
+                {
+                    output[i] = input[i2];
+                    i2++;
+                }
+            }
+
+            return output;
+        }
+        #endregion
     }
 }

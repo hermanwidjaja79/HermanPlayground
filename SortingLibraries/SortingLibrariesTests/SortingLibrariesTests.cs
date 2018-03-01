@@ -24,7 +24,12 @@ namespace SortingLibraries.Tests
         protected Dictionary<List<int>, List<int>> CreateTestCases()
         {
             Dictionary<List<int>, List<int>> dctTestCases = new Dictionary<List<int>, List<int>>();
-            // standard list - no duplicate
+            // standard list - no duplicate (odd count)
+            //
+            dctTestCases.Add(
+                CreateList(6, 9, 3),
+                CreateList(3, 6, 9));
+            // standard list - no duplicate (even count)
             //
             dctTestCases.Add(
                 CreateList(6, 9, 3, 8, 1, 7),
@@ -44,6 +49,12 @@ namespace SortingLibraries.Tests
             dctTestCases.Add(
                 CreateList(5),
                 CreateList(5)
+                );
+            // two entry list
+            //
+            dctTestCases.Add(
+                CreateList(7, 5),
+                CreateList(5, 7)
                 );
             // one entry list - duplicate
             //
@@ -80,8 +91,8 @@ namespace SortingLibraries.Tests
             {
                 List<int> result = SortingLibraries.BubbleSort(entry.Key);
                 Assert.AreEqual(
-                    ListToString(result), 
-                    ListToString(entry.Value)
+                    ListToString(entry.Value),
+                    ListToString(result)
                     );
             }
         }
@@ -95,8 +106,23 @@ namespace SortingLibraries.Tests
             {
                 List<int> result = SortingLibraries.RadixSort(entry.Key);
                 Assert.AreEqual(
-                    ListToString(result),
-                    ListToString(entry.Value)
+                    ListToString(entry.Value),
+                    ListToString(result)
+                    );
+            }
+        }
+
+        [TestMethod()]
+        public void MergeSortTest()
+        {
+            Dictionary<List<int>, List<int>> dctTestCases = CreateTestCases();
+
+            foreach (KeyValuePair<List<int>, List<int>> entry in dctTestCases)
+            {
+                List<int> result = SortingLibraries.MergeSort(entry.Key);
+                Assert.AreEqual(
+                    ListToString(entry.Value),
+                    ListToString(result)
                     );
             }
         }
