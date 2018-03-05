@@ -47,6 +47,82 @@ namespace SortingLibraries
         #endregion
 
         #region Sorting Algorithms
+        public static List<int> QuickSort(List<int> input)
+        {
+            // parameter check
+            //
+            if (input == null || input.Count() == 0)
+            {
+                return input;
+            }
+            else if (input.Count() == 1)
+            {
+                return input;
+            }
+            return QuickSort(ref input, 0, input.Count() - 1);
+        }
+        protected static List<int> QuickSort (ref List<int> input, int left, int right)
+        {
+            // parameter check
+            //
+            if (input == null || input.Count() == 0 || left < 0 || right < 0 ||
+                left > input.Count() || right > input.Count())
+            {
+                return null;
+            }
+
+            // continue looping until left >= right
+            //
+            if (left < right)
+            {
+                int pivot = Partition(input, left, right);
+                QuickSort(ref input, left, pivot - 1);
+                QuickSort(ref input, pivot + 1, right);
+            }
+
+            return input;
+        }
+        protected static int Partition (List<int> input, int left, int right)
+        {
+            int pivot = input[left];
+            while (true)
+            {
+                // move the left index
+                //
+                while (input[left] < pivot)
+                {
+                    left++;
+                }
+
+                // move the right index
+                //
+                while (input[right] > pivot)
+                {
+                    right--;
+                }
+
+                // avoiding infinite loop
+                //
+                if (input[left] == input[right] && pivot == input[left])
+                {
+                    left++;
+                }
+                
+                if (left < right)
+                {
+                    // swap input[left] and input[right]
+                    //
+                    int temp = input[left];
+                    input[left] = input[right];
+                    input[right] = temp;
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
+
         public static List<int> BubbleSort (List<int> input)
         {
             if (input is null || input.Count() <= 1)

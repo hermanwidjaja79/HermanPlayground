@@ -83,6 +83,21 @@ namespace SortingLibraries.Tests
         #endregion
 
         [TestMethod()]
+        public void QuickSortTest()
+        {
+            Dictionary<List<int>, List<int>> dctTestCases = CreateTestCases();
+
+            foreach (KeyValuePair<List<int>, List<int>> entry in dctTestCases)
+            {
+                List<int> result = SortingLibraries.QuickSort(entry.Key);
+                Assert.AreEqual(
+                    ListToString(entry.Value),
+                    ListToString(result)
+                    );
+            }
+        }
+
+        [TestMethod()]
         public void BubbleSortTest()
         {
             Dictionary<List<int>, List<int>> dctTestCases = CreateTestCases();
